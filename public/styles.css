@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'MedievalSharp', cursive;
+}
+
+.header{ 
+    background: rgba(83, 52, 1,0.8);
+    overflow: hidden;
+    width:100%;
+    margin-bottom: 20px;
+    top:0;
+    left:0;
+    z-index:100;
+    position:fixed;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 1180px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.logo {
+    color: #fff;
+    font-size: 50px;
+    line-height: 70px;
+    float:left
+}
+
+nav {
+    line-height: 70px;
+    float: right;
+
+}
+
+nav a { 
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 20px 10px;
+    line-height: normal;
+    font-size: 16px;
+    -webkit-transition: all 500ms ease; 
+    transition:all 500ms ease;
+}
+
+nav a:hover{
+    color: 	#FFD700;
+    border-bottom: 5px solid	#FFD700;
+
+}
+
+.flex-container { 
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text-container {
+    position: relative;
+    top: 76px;
+    display: inline-block;
+    max-width: 68em;
+    padding: 10px;
+    word-break: break-all;
+   
+}
+
+.text-container:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(scroll.png);
+    background-size: 100% 100%;
+    opacity: .7;}
+
+.list { 
+    display: table;
+    margin: 0 auto;  
+    text-align: center;
+    word-spacing: 39px;
+}
+
+ul#horizontal-list {
+    min-width: 320px;
+	list-style: none;
+	padding-top: 20px;
+}
+
+ul#horizontal-list li { 
+    display: inline;
+}
+
+
+@media only screen and (min-width:400px) and (max-width:767px) {
+    .header{ 
+       height: 70px;
+    }
+
+    .logo {
+       font-size: 30px;
+       margin-left: 130px;
+       margin-top: -15px
+    }
+    
+    nav {
+        margin-top: -40px;
+        transform: translateX(-3%)
+    }
+
+}
+
+@media screen and (max-width:394px ) {
+    .flex-container {
+        height: 87vh;
+
+    } 
+
+    .text-container {
+        font-size: 80%;
+       
+    }
+}
