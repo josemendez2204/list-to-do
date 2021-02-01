@@ -1,21 +1,24 @@
 <%- include('../template/header'); %>
 <div class= 'flex-container'>
 <div class = 'text-container'> <h1><%= listtodoTitle %></h1> </div>
-<div class= 'text-container'> 
-    <div class= 'list'>
-    <ul id= 'horizontal-list'>
-      <% if ( arrayTasks.length > 0) { %>
-        <% arrayTasks.forEach(task => { %>
-       
-           <li> <%= task.date %>  </li>
-           <li> <%= task.task %> </li>
-         </ul> 
-    <% }) %>
-     
-   <% } %> 
-   
 </div>
-</div>
+<div class= 'grid-container'>
+<div class= 'elements'>Date</div> 
+<div class= 'elements'>Task</div>  
+<div class= 'elements'>action</div>
+<% if ( arrayTasks.length > 0) { %>
+  <% arrayTasks.forEach(task => { %>
+ 
+    <div class= 'elements'><%= task.date %></div>  
+    <div class= 'elements'><%= task.task %> </div>  
+    <div class= 'elements-bottom'>
+      delete <br>
+      edit
+    </div>   
+<% }) %>
+
+<% } %> 
+
 </div>
 <%- include('../template/footer'); %>
 

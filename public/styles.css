@@ -92,22 +92,29 @@ nav a:hover{
     background-size: 100% 100%;
     opacity: .7;}
 
-.list { 
-    display: table;
-    margin: 0 auto;  
-    text-align: center;
-    word-spacing: 39px;
+    
+    .grid-container {
+    margin-top: 2.5%;
+    background: url(scroll.png);
+    background-size: 100% 100%;
+    display: grid;
+    grid-template-columns: minmax(10%, 25%) minmax(10%, 25%)
+    minmax(10%, 25%);
+    grid-template-rows: 40px auto 40px ;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all;
+    grid-gap: 10px;
+    margin-bottom: 20%;
+    padding-bottom: 5%;
+    padding-top: 5%;
 }
 
-ul#horizontal-list {
-    min-width: 320px;
-	list-style: none;
-	padding-top: 20px;
+.elements-bottom {
+    align-self: start;
 }
 
-ul#horizontal-list li { 
-    display: inline;
-}
+
 
 
 @media only screen and (min-width:400px) and (max-width:767px) {
@@ -126,6 +133,7 @@ ul#horizontal-list li {
         transform: translateX(-3%)
     }
 
+
 }
 
 @media screen and (max-width:394px ) {
@@ -138,4 +146,5 @@ ul#horizontal-list li {
         font-size: 80%;
        
     }
+
 }

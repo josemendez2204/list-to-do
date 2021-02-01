@@ -22,11 +22,12 @@ app.set("views", __dirname + "/viewsEJS");
 
 // app routes
 app.use  ('/', require ('./router/routesCrud'))
-app.use ('listtodo', require ('./router/Tasks'))
+app.use ('/listtodo', require ('./router/Tasks'))
 
 app.use((req, res, next) => {
     res.status(404).render('404', {title404:"NOT FOUND 404"});
   });
+  
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

@@ -9,8 +9,5 @@ router.get ('/services', (req,res) => {
     res.render("services",{serviceTitle:'this is the service page'});
 } );
 
- router.get ('/listtodo', (req,res) => {
-  res.render("listtodo",{listtodoTitle:'List of tasks'});
-} ); 
 
 module.exports= router; 
