@@ -92,14 +92,18 @@ nav a:hover{
     background-size: 100% 100%;
     opacity: .7;}
 
-    
+    .elements-title { 
+        font-weight: bold;
+    }
+
+
     .grid-container {
     margin-top: 2.5%;
     background: url(scroll.png);
     background-size: 100% 100%;
     display: grid;
-    grid-template-columns: minmax(10%, 25%) minmax(10%, 25%)
-    minmax(10%, 25%);
+    grid-template-columns: minmax(30%, 45%) minmax(30%, 45%)
+    minmax(30%, 45%);
     grid-template-rows: 40px auto 40px ;
     justify-content: center;
     align-items: center;
@@ -108,12 +112,59 @@ nav a:hover{
     margin-bottom: 20%;
     padding-bottom: 5%;
     padding-top: 5%;
+    text-align: center;
+    font-size: medium;
 }
 
-.elements-bottom {
-    align-self: start;
+
+
+.add-bottom {
+    height: 46px;
+    padding-top: 15px;
+    font-weight: bold;
 }
 
+.button-delete {
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: 'MedievalSharp', cursive;
+    font-size: medium;
+    font-weight: bold;
+    }
+
+.button-edit{
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: 'MedievalSharp', cursive;
+    font-size: medium;
+    font-weight: bold;
+} 
+
+.button-add{
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: 'MedievalSharp', cursive;
+    font-size: medium;
+    font-weight: bold;
+} 
+
+.button-add:hover{
+    color:rgb(0, 201, 33)
+}
+
+.button-delete:hover {
+    color: rgba(255, 0, 0, 0.767);
+    
+}
+
+
+
+.button-edit:hover {
+    color:royalblue
+}
 
 
 

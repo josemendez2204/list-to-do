@@ -3,22 +3,24 @@
 <div class = 'text-container'> <h1><%= listtodoTitle %></h1> </div>
 </div>
 <div class= 'grid-container'>
-<div class= 'elements'>Date</div> 
-<div class= 'elements'>Task</div>  
-<div class= 'elements'>action</div>
+<div class= 'elements-title'><u> Date </u></div> 
+<div class= 'elements-title'><u>Task</u></div>  
+<div class= 'elements-title'><u>Action</u></div>
 <% if ( arrayTasks.length > 0) { %>
   <% arrayTasks.forEach(task => { %>
  
     <div class= 'elements'><%= task.date %></div>  
     <div class= 'elements'><%= task.task %> </div>  
     <div class= 'elements-bottom'>
-      delete <br>
-      edit
+      <button class= "button-delete" type="button">Delete</button><br>
+      <button class='button-edit' type="button">Edit</button>
     </div>   
 <% }) %>
 
 <% } %> 
-
+<div class= 'blank-grid'></div>
+<div class= 'add-bottom'> <button class = 'button-add' type="button"> Add Task </button></div>
+<div class="blank-grid"></div>
 </div>
 <%- include('../template/footer'); %>
 
