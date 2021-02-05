@@ -17,4 +17,8 @@ router.get("/", async (req, res) => {
     }
   });
 
+  router.get ('/addTask', (req,res) => {
+    res.render ('addTask')
+  })
+
 module.exports= router; 

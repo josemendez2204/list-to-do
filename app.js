@@ -1,6 +1,14 @@
 const express= require ("express")
+const bodyParser = require('body-parser')
 const app= express ();
+
+// bodyparser config
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
 const port= 3000
+
 app.use(express.static(__dirname + "/public"));
 
 const mongoose = require('mongoose');
