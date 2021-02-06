@@ -2,4 +2,35 @@
 <div class= 'flex-container'>
     <div class = 'text-container'> <h1>Add your task</h1> </div>
     </div>
+<div class = 'add-input'>
+    
+        <form id= "form" action="">
+        <label for="fname">Date:</label>
+        <input type="text" id="dateInput" name="fname" placeholder="00/00/00"><br><br>
+        <label for="lname">Task:</label>
+        <input type="text" id="taskInput" name="lname" placeholder="E.g: attend yoga class"><br><br>
+        <div class= 'add-bottom'> <button class = 'button-add' type="submit"> Add Task </button></div>
+        </form>
+    
+</div>
+
+<script>
+const date= document.getElementById ('dateInput')
+const task= document.getElementById ('taskInput')
+const form= document.getElementById ('form')
+
+form.addEventListener('submit', (e) => {
+    if (date.value === "") {
+        date.setAttribute("placeholder", "Fill the date form e.g: 00/00/00");
+        date.style.borderColor="red"
+    }
+
+    if (task.value === "") {
+        task.setAttribute("placeholder", "Please fill task form");
+        task.style.borderColor="red"
+    }
+    e.preventDefault ()
+})
+
+</script>
 <%- include('template/footer'); %>
