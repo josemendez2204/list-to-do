@@ -4,12 +4,12 @@
     </div>
 <div class = 'add-input'>
     
-        <form id= "form" action="">
+        <form id= "form" action="/listtodo" method="POST">
         <label for="fname">Date:</label>
-        <input type="text" id="dateInput" name="fname" placeholder="00/00/00"><br><br>
+        <input type="text" id="dateInput" name="date" placeholder="00/00/00" ><br><br>
         <label for="lname">Task:</label>
-        <input type="text" id="taskInput" name="lname" placeholder="E.g: attend yoga class"><br><br>
-        <div class= 'add-bottom'> <button class = 'button-add' type="submit"> Add Task </button></div>
+        <input type="text" id="taskInput" name="task" placeholder="E.g: attend yoga class"><br><br>
+        <div class= 'add-bottom'> <button class = 'button-add' type="submit" onclick=""> Add Task </button></div>
         </form>
     
 </div>
@@ -23,14 +23,19 @@ form.addEventListener('submit', (e) => {
     if (date.value === "") {
         date.setAttribute("placeholder", "Fill the date form e.g: 00/00/00");
         date.style.borderColor="red"
-    }
-
+        e.preventDefault ()
+    } 
+    
+   
     if (task.value === "") {
         task.setAttribute("placeholder", "Please fill task form");
         task.style.borderColor="red"
+        e.preventDefault ()
+
     }
-    e.preventDefault ()
+    
 })
+
 
 </script>
 <%- include('template/footer'); %>

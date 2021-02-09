@@ -13,13 +13,13 @@
     <div class= 'elements'><%= task.task %> </div>  
     <div class= 'elements-bottom'>
       <button class= "button-delete" type="button">Delete</button><br>
-      <button class='button-edit' type="button">Edit</button>
+      <a class='button-edit' href= '/listtodo/<%= task.id %> '>Edit</a>
     </div>   
 <% }) %>
 
 <% } %> 
 <div class= 'blank-grid'></div>
-<div class= 'add-bottom'> <button class = 'button-add' href= '/addTask' type="button"> Add Task </button></div>
+<div class= 'add-bottom'> <a class = 'button-add' href= 'listtodo/addTask'> Add task</a></div>
 <div class="blank-grid"></div>
 </div>
 <%- include('template/footer'); %>
