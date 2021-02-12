@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
     const createTask= new taskmodel  (body)
     await createTask.save()
 
-    console.log ( 'new task created', arrayTasksDB)
+    console.log ( 'new task created', createTask)
     res.redirect('/listtodo')
   } catch (e) {
     console.log (e)
@@ -59,5 +59,34 @@ router.get ('/:id', async (req,res) => {
 
 })
 
+router.delete('/:id',async (req,res) => {
+const id = req.params.id
+
+try {
+  const arrayTasksDB= await taskmodel.findByIdAndRemove ({_id: id})
+  console.log (arrayTasksDB)
+
+  res.render ('/listtodo', {
+    taskId: readId,
+    error: false
+  })
+
+  if (!arrayTasksDB) {
+    res.json({
+        status: false,
+        message: 'No se puede eliminar'
+    })
+} else {
+    res.json({
+        status: true,
+        message: 'eliminado!'
+    })
+}
+
+} catch (error) {
+console.log(error)
+}
+
+})
 
 module.exports= router; 
