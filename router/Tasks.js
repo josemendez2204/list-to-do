@@ -89,4 +89,27 @@ console.log(error)
 
 })
 
+router.put ('/:id',async (req,res) => {
+  const id = req.params.id
+  const body= req.body
+
+  try {
+    const edittaskDB= await taskmodel.findByIdAndUpdate (id,body, {useFindAndModify: false})
+    console.log (edittaskDB)
+
+    res.json ({
+      status: true,
+      message: 'task editated'
+    })
+  }catch (e) {
+    console.log(e)
+
+    res.json ({
+      status: true,
+      message: 'we failed'
+    })
+  }
+
+})
+
 module.exports= router; 

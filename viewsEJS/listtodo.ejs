@@ -25,23 +25,21 @@
 <%- include('template/footer'); %>
 
 <script>
-const btnDelete= document.getElementsByClassName("button-delete")
- console.log (btnDelete)
-  for (var i = 0 ; i < btnDelete.length; i++) {
 
- btnDelete[i].addEventListener ( 'click', () => {
-console.log ('you clicked me')
-const id= btnDelete[i].dataset.id
-console.log(btnDelete[i])
-})
-}
-//   try {
-//   const data= await fetch (`/listtodo/${id}`,{method: 'delete'})
-// }catch (e) {
-//   console.log (e)
-//  }
-
-// })
-// }
+  const btnDelete = document.getElementsByClassName("button-delete");
+  console.log(btnDelete);
+  for (var i = 0; i < btnDelete.length; i++) {
+    btnDelete[i].addEventListener("click", async (event) => {
+      console.log("you clicked me");
+      const id = event.target.dataset.id;
+      location.reload(event);
+      try {
+        const data = await fetch(`/listtodo/${id}`, { method: "delete" });
+       
+      } catch (e) {
+        console.log(e);
+      }
+    });
+  }
 
 </script>

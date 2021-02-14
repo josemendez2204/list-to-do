@@ -1,29 +1,64 @@
 <%- include('template/header'); %>
-<div class= 'flex-container'>
+
   
     <% if (error) { %>
+        <div class= 'flex-container'></div>
         <div class = 'text-container'> <h1><%=message %> </h1> </div>
         <div class = 'text-container'> <a href="/listtodo" style="color:black"><h2>resume to the list </h2></a></div>
-    
-    <% } %>
     </div>
+    <% } %>
+    
     <% if (!error) { %>
         <div class= 'flex-container'>
             <div class = 'text-container'> <h1> Edit your task </h1> </div>
-        </div>
+            </div>
 
-        <div class= 'grid-container'>
-            <div class= 'elements-title'><u> Date </u></div> 
-            <div class= 'elements-title'><u>Task</u></div>  
-            <div class= 'elements-title'><u>Action</u></div>
-             
-                <div class= 'elements'><%= taskId.date %></div>  
-                <div class= 'elements'><%= taskId.task %> </div>  
-                <div class= 'elements-bottom'>
-                  <button class='button-edit' type="button">Edit</button>
-                </div>   
-           
+           <div class = 'add-input'>
+    
+            <form id= "editForm" data-id="<%= taskId.id %>">
+            <label for="fname">Date:</label>
+            <input type="text" id="dateInput" name="date" value="<%= taskId.date %>" ><br><br>
+            <label for="lname">Task:</label>
+            <input type="text" id="taskInput" name="task" value="<%= taskId.task %> "><br><br>
+            <div class= 'elements-bottom'>
+                <button class='button-edit' type="submit" >Edit</button>
+              </div>   
+            </form>
+        
+    </div>
+    
+        
     <% } %>
    
    
 <%- include('template/footer'); %>
+
+<script>
+const editForm= document.querySelector ('#editForm' )
+
+    editForm.addEventListener ('submit', async (e) => {
+        e.preventDefault()
+        const date= editForm.elements['date'].value
+        const task= editForm.elements ['task'].value
+        const id= editForm.dataset.id
+        console.log(id)
+
+        try {
+            const data= await fetch (`/listtodo/${id}`, {
+                method: 'put',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify( {date,task})
+        })
+
+        const response= await data.json()
+
+        if (response.status) {
+            window.location.href= '/listtodo'
+        }
+        console.log (response)
+        } catch (e) {
+            console.log (e)
+        }
+    })
+
+</script>
