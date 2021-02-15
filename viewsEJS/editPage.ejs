@@ -36,12 +36,42 @@
 <script>
 const editForm= document.querySelector ('#editForm' )
 
+
+   
+
+
     editForm.addEventListener ('submit', async (e) => {
         e.preventDefault()
         const date= editForm.elements['date'].value
         const task= editForm.elements ['task'].value
         const id= editForm.dataset.id
+        const datevali= document.getElementById ('dateInput')
+        const taskvali= document.getElementById ('taskInput')
         console.log(id)
+
+        if (datevali.value === "") {
+        datevali.setAttribute("placeholder", "Fill the date form e.g: 00/00/00");
+        datevali.style.borderColor="red"
+        e.preventDefault ()
+        return false
+    } 
+        
+        if (!new RegExp(/\d\d\/\d\d\/\d\d/).test(datevali.value)) {
+        datevali.value= ""
+        datevali.setAttribute("placeholder", "E.g: 00/00/00");
+        datevali.style.borderColor="red"
+        e.preventDefault ()
+        return false
+    } 
+
+    if (taskvali.value === "") {
+        taskvali.setAttribute("placeholder", "Please fill task form");
+        taskvali.style.borderColor="red"
+        e.preventDefault ()
+        return false
+    }
+    
+   
 
         try {
             const data= await fetch (`/listtodo/${id}`, {
@@ -60,5 +90,8 @@ const editForm= document.querySelector ('#editForm' )
             console.log (e)
         }
     })
+
+   
+   
 
 </script>

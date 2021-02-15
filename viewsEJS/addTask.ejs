@@ -26,6 +26,12 @@ form.addEventListener('submit', (e) => {
         e.preventDefault ()
     } 
     
+    if (!new RegExp(/\d\d\/\d\d\/\d\d/).test(date.value)) {
+        date.value= ""
+        date.setAttribute("placeholder", "E.g: 00/00/00");
+        date.style.borderColor="red"
+        e.preventDefault ()
+    } 
    
     if (task.value === "") {
         task.setAttribute("placeholder", "Please fill task form");
