@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-const port= 3000
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + "/public"));
 
@@ -37,7 +37,7 @@ app.use((req, res, next) => {
   });
   
 
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${port}`);
   });
 
